@@ -20,7 +20,6 @@ function App() {
         return response.json();
       })
       .then(newData => {
-        // Atualize o estado usando uma nova cópia dos dados
         setData([...newData]);
         setOriginalData([...newData]);
       })
@@ -38,8 +37,8 @@ function App() {
     if (!feature) {
       return items;
     }
-    feature = feature.toLowerCase(); // Converter a entrada do filtro para minúsculas
-    return items.filter(item => item.Feature.toLowerCase().includes(feature)); // Converter o campo do objeto para minúsculas
+    feature = feature.toLowerCase();
+    return items.filter(item => item.Feature.toLowerCase().includes(feature));
   }
   
 
@@ -48,7 +47,6 @@ function App() {
     const finalFilteredData = filterByFeature(filteredDataByDate, featureFilter);
 
     if (!dateFilter && !featureFilter) {
-      // Se ambos os filtros estiverem vazios, exibir os dados originais
       setData([...originalData]);
     } else {
       setData([...finalFilteredData]);
